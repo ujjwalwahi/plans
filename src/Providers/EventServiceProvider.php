@@ -1,6 +1,6 @@
 <?php
 
-namespace Vtlabs\PHP_ROUND_HALF_EVEN\Providers;
+namespace Rennokki\Plans\Providers;
 
 use Vtlabs\Payment\Events\PaymentUpdated;
 use Rennokki\Plans\Listener\PaymentUpdatedListener;
