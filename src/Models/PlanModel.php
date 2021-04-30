@@ -2,10 +2,11 @@
 
 namespace Rennokki\Plans\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Vtlabs\Payment\Traits\CanBePaid;
+use Vtlabs\Payment\Contracts\Payable;
+use Illuminate\Database\Eloquent\Model;
 
-class PlanModel extends Model
+class PlanModel extends Model implements Payable
 {
     use CanBePaid;
     
@@ -13,6 +14,7 @@ class PlanModel extends Model
     protected $guarded = [];
     protected $casts = [
         'metadata' => 'object',
+        'price' => 'float'
     ];
 
     public function features()
