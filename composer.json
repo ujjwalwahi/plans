@@ -48,7 +48,7 @@
         "laravel": {
             "providers": [
                 "Rennokki\\Plans\\PlansServiceProvider",
-                "Rennokki\\Plans\\Provider\\EventServiceProvider"
+                "Rennokki\\Plans\\Providers\\EventServiceProvider"
             ]
         }
     },
