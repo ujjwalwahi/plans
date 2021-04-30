@@ -3,9 +3,12 @@
 namespace Rennokki\Plans\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Vtlabs\Payment\Traits\CanBePaid;
 
 class PlanModel extends Model
 {
+    use CanBePaid;
+    
     protected $table = 'plans';
     protected $guarded = [];
     protected $casts = [
