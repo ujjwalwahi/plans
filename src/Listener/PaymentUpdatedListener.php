@@ -29,7 +29,7 @@ class PaymentUpdatedListener
         $payment = $event->payment;
         
         // we need to subscribe plan according to payment status
-        if ($payment->payable_type == 'Rennokki\Plans\Models\PlanModel') {
+        if ($payment->payable_type == 'Rennokki\Plans\Models\PlanModel' && $payment->payer_type == User::class) {
             if($payment->status == 'paid') {
                 $plan = PlanModel::find($payment->payable_id);
                 $user = User::find($payment->payer_id);
