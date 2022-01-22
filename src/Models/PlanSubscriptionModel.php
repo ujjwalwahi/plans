@@ -18,6 +18,7 @@ class PlanSubscriptionModel extends Model
         'is_paid' => 'boolean',
         'is_recurring' => 'boolean',
     ];
+    protected $with = ['plan'];
 
     public function model()
     {
