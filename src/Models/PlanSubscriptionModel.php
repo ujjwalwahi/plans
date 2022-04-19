@@ -218,7 +218,7 @@ class PlanSubscriptionModel extends Model
             ]));
         }
 
-        $used = (float) ($feature->isUnlimited()) ? (($usage->used - $amount < 0) ? 0 : ($usage->used - $amount)) : ($usage->used - $amount);
+        $used = (float) ($feature->isUnlimited()) ? ((($usage->used - $amount < 0) ? 0 : ($usage->used - $amount))) : ($usage->used - $amount);
         $remaining = (float) ($feature->isUnlimited()) ? -1 : (($used > 0) ? ($feature->limit - $used) : $feature->limit);
 
         event(new \Rennokki\Plans\Events\FeatureUnconsumed($this, $feature, $amount, $remaining));
