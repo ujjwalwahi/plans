@@ -21,10 +21,10 @@
         }
     ],
     "require": {
-        "doctrine/dbal": "^2.8.0",
-        "laravel/framework": "^6.0",
-        "stripe/stripe-php": "^6.11.0",
-        "vtlabs/payments": "^1.0"
+        "doctrine/dbal": "^3.5",
+        "laravel/framework": "^9.0",
+        "stripe/stripe-php": "^10.0",
+        "vtlabs/payments": "v2.x-dev"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.2|^7.0",
