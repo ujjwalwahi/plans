@@ -27,10 +27,6 @@ class CreatePlanUsageLogsTable extends Migration
      */
     public function down()
     {
-        Schema::table('active_logs', function (Blueprint $table) {
-            $table->dropForeign('active_logs_foreign_user');
-        });
-
-        Schema::dropIfExists('plan_usage_log');
+        Schema::dropIfExists('plan_usage_logs');
     }
 }
