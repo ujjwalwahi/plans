@@ -23,7 +23,7 @@
     "require": {
         "laravel/framework": "^12.0",
         "stripe/stripe-php": "^15",
-        "vtlabs/payments": "v4.x-dev"
+        "vtlabs/payments": "dev-leadsphere"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.5",
