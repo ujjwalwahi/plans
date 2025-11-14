@@ -27,18 +27,24 @@ class PaymentUpdatedListener
     public function handle(PaymentUpdated $event)
     {
         $payment = $event->payment;
-        
+        $paymentMeta = $event->meta;
+
         // we need to subscribe plan according to payment status
         if ($payment->payable_type == 'Rennokki\Plans\Models\PlanModel' && $payment->payer_type == User::class) {
-            if($payment->status == 'paid') {
+            if ($payment->status == 'paid') {
                 $plan = PlanModel::find($payment->payable_id);
                 $user = User::find($payment->payer_id);
-                if($user->hasActiveSubscription()) {
+                if ($user->hasActiveSubscription()) {
                     $user->cancelCurrentSubscription();
                 }
                 $user->subscribeTo($plan, $plan->duration);
+
+                if ($paymentMeta) {
+                    $subscription = $user->activeSubscription();
+                    $subscription->meta = array_merge($subscription->meta ?? [], $paymentMeta ?? []);
+                    $subscription->save();
+                }
             }
         }
-        return true;
     }
 }

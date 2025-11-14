@@ -17,6 +17,7 @@ class PlanSubscriptionModel extends Model
     protected $casts = [
         'is_paid' => 'boolean',
         'is_recurring' => 'boolean',
+        'meta' => 'array'
     ];
     protected $with = ['plan'];
 
