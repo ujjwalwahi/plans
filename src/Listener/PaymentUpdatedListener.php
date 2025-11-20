@@ -26,7 +26,7 @@ class PaymentUpdatedListener
      */
     public function handle(PaymentUpdated $event)
     {
-        $payment = $event->payment;
+        $payment = $event->payment->fresh();
         $paymentMeta = $event->meta;
 
         // we need to subscribe plan according to payment status
